@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Signup Page</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/signup.css">
+  </head>
+  <body>
+    <h1>Signup</h2>
+    <div class="login-area">
+        {% if username %}
+            <a class="login-link" href="/blog">blog </a>|
+            <a class="login-link" href="/blog/newpost">post </a>|
+            <a class="login-link" href="/blog/map">map </a>|
+            <a class="login-link" href="/blog/logout">logout</a>
+            <br>{{username}}
+        {% else %}
+            <a class="login-link" href="/blog/login">login</a>|
+            <a class="login-link" href="/blog/signup">signup</a>
+        {% endif %}
+    </div>
+    <form method="post">
+      <table>
+        <tr>
+          <td class="label">Username</td>
+          <td><input type="text" name="username" value="{{username_value}}"></td>
+          <td class="error">{{error_username}}</td>
+        </tr>
+
+        <tr>
+          <td class="label">Password</td>
+          <td><input type="password" name="password" value=""></td>
+          <td class="error">{{error_password}}</td>
+        </tr>
+
+        <tr>
+          <td class="label">Verify Password</td>
+          <td><input type="password" name="verify" value=""></td>
+          <td class="error">{{error_verify}}</td>
+        </tr>
+
+        <tr>
+          <td class="label">Email (optional)</td>
+          <td><input type="text" name="email" value="{{email_value}}"></td>
+          <td class="error">{{error_email}}</td>
+        </tr>
+      </table>
+
+      <input type="submit">
+
+    </form>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css">
+  </head>
+  <body>
+    <a href="/blog" class="main-title">Dodie's Blog</a>
+    <div class="login-area">
+        {% if username %}
+            <a class="login-link" href="/blog">blog </a>|
+            <a class="login-link" href="/blog/newpost">post </a>|
+            <a class="login-link" href="/blog/map">map </a>|
+            <a class="login-link" href="/blog/logout">logout</a>
+            <br>{{username}}
+        {% else %}
+            <a class="login-link" href="/blog/login">login</a>|
+            <a class="login-link" href="/blog/signup">signup</a>
+        {% endif %}
+    </div>
+    <div id="content">
+      <!-- Python code embedded in HTML for Jinja2 engine -->
+      {% for post in posts %}
+      <div class="post">
+        <div class="post-heading">
+          <div class="post-title">{{post.subject}}</div>
+	  <!-- see strftime.org, %X and %z are blank because its naive -->
+          <div class="post-date">{{post.created.date().strftime("%A %B %d, %Y")}} {{post.created.time().strftime("%X %z")}}</div>
+        </div>
+        <div class="post-content"><pre>{{post.content}}</pre></div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
+
+

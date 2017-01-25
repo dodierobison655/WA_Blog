@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/blog.css">
+  </head>
+  <body>
+    <a href="/blog" class="main-title">Dodie's Blog</a>
+        <div class="login-area">
+        {% if username %}
+            <a class="login-link" href="/blog">blog </a>|
+            <a class="login-link" href="/blog/newpost">post </a>|
+            <a class="login-link" href="/blog/map">map </a>|
+            <a class="login-link" href="/blog/logout">logout</a>
+            <br>{{username}}
+        {% else %}
+            <a class="login-link" href="/blog/login">login</a>|
+            <a class="login-link" href="/blog/signup">signup</a>
+        {% endif %}
+    </div>
+    <div id="content">
+      <!-- Python code embedded in HTML for Jinja2 engine -->
+      <div class="post">
+        <div class="post-heading">
+          <div class="post-title">{{subject}}</div>
+          <div class="post-date">{{date}}</div>
+        </div>
+        <div class="post-content"><pre>{{content}}</pre></div>
+      </div>
+    </div>
+  </body>
+</html>

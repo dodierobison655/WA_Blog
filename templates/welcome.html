@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome Page</title>
+  </head>
+  <body>
+     <h1>Welcome, {{username}}!</h1>
+    <div class="login-area">
+        {% if username %}
+            <a class="login-link" href="/blog">blog </a>|
+            <a class="login-link" href="/blog/newpost">post </a>|
+            <a class="login-link" href="/blog/map">map </a>|
+            <a class="login-link" href="/blog/logout">logout</a>
+            <br>{{username}}
+        {% else %}
+            <a class="login-link" href="/blog/login">login</a>|
+            <a class="login-link" href="/blog/signup">signup</a>
+        {% endif %}
+    </div>
+     <img src="/images/success.jpg" alt="Welcome image">
+  </body>
+</html>
+
+
